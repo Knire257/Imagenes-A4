@@ -23,17 +23,11 @@ describe('ImagesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('the method getDims must been called', ()=>{
-    let calledmethod = spyOn(component, 'getDims');
-    expect(calledmethod).toHaveBeenCalled();
-  })
+  it('the method getDims must return an array with the width and height of the image', ()=>{
+    expect(component.getDims()).toHaveSize(2);
+  });
 
-  it('the method isHorizontal must been called', ()=>{
-    let calledmethod = spyOn(component, 'isHorizontal');
-    expect(calledmethod).toHaveBeenCalled();
-  })
-
-  it('the method isHorizontal must be true', ()=>{
-    expect(component.isHorizontal()).toBeTruthy();
-  })
+  it('the method cropImage must return an array with the new width and new height of the image', ()=>{
+    expect(component.cropImage()).toHaveSize(2);
+  });
 });
