@@ -13,7 +13,7 @@ export class ImagesComponent implements OnInit {
   public imageHeight: any;
 
   /*Edit this path to change the image*/
-  public imagePath = '../assets/images/Apex-logo.png';
+  public imagePath = '../assets/images/bird_hd.jpg';
   constructor() { }
 
 
