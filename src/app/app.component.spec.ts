@@ -19,13 +19,14 @@ describe('AppComponent', () => {
   it(`should have as title 'Imagenes-A4'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Imagenes-A4');
+    expect(app.title).toEqual('Visualizador de imágenes en hojas A4');
   });
 
-  it('should render title', () => {
+  it('should have as description a text', ()=>{
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Imagenes-A4 app is running!');
-  });
+    const app = fixture.componentInstance;
+    expect(app.description).toEqual('En esta aplicación se muestran disitintas imágenes y cómo podrían verse si se imprimen en hojas tamaño A4');
+  })
+
+
 });

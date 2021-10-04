@@ -1,0 +1,19 @@
+/*General settings*/
+body{
+  display: block;
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  background-color: rgb(54, 54, 54);
+}
+
+.header{
+  background-color: rgb(231, 231, 231);
+  padding: 15px;
+  box-shadow: 0px 0px 40px black;
+}
+
+.header h3{
+  padding-top: 15px;
+}
+

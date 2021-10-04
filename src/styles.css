@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/*app component styles*/
+@import url(./app/app.component.css);
+
+/*images component styles*/
+@import url(./app/images/images.component.css);
+
+/*General settings*/
+body{
+  font-family:  Roboto, Helvetica, Arial, sans-serif;
+}
