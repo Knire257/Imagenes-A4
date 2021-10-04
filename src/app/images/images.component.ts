@@ -6,14 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./images.component.css']
 })
 export class ImagesComponent implements OnInit {
+
+  /* Variables publicas que serán usadas en los distintos métodos*/
   public img = new Image();
+  public imageWidth: any;
+  public imageHeight: any;
+
+  /*Edit this path to change the image*/
+  public imagePath = '../assets/images/Apex-logo.png';
   constructor() { }
+
+
 
   /*while onInit this sets the img path*/
   ngOnInit(): void {
-    this.img.src = '../assets/images/bird_hd.jpg';
-    this.cropImage();
+    this.img.src = this.imagePath;
+    this.resizeImage();
   }
+
+
 
   /*This method gets the original size of the image*/
   getDims(): any {
@@ -88,8 +99,7 @@ export class ImagesComponent implements OnInit {
   /*this method will call the others and paste the image*/
   resizeImage(): void {
     let newSize = this.cropImage();
-    this.img.width = newSize[0];
-    this.img.height = newSize[1];
-    document.body.appendChild(this.img);
+    this.imageWidth = newSize[0];
+    this.imageHeight = newSize[1];
   }
 }
