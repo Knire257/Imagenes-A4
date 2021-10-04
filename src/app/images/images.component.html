@@ -1,8 +1,5 @@
 
-<div [ngClass]="{
-  'horizontal': isHorizontal(),
-  'vertical':!isHorizontal()
-}">
-<img src={{imagePath}} width={{imageWidth}} height={{imageHeight}} alt="[Image Here]">
+<div *ngFor="let path of imagePaths; let index=index" class="{{imageOrientation[index]}}">
+<img src={{path}} width={{imageWidths[index]}} height={{imageHeights[index]}}  alt="[Image Here]">
 </div>
 

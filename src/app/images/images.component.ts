@@ -12,19 +12,28 @@ export class ImagesComponent implements OnInit {
   public imageWidth: any;
   public imageHeight: any;
 
-  /*Edit this path to change the image*/
-  public imagePath = '../assets/images/bird_hd.jpg';
+  /*Edit this array to change the image*/
+  public imagePaths = ['../assets/images/1.png', '../assets/images/2.jpg', '../assets/images/3.png', '../assets/images/4.jpg'];
+  public imageWidths = [];
+  public imageHeights = [];
+  public imageOrientation = [];
   constructor() { }
-
-
 
   /*while onInit this sets the img path*/
   ngOnInit(): void {
-    this.img.src = this.imagePath;
     this.resizeImage();
   }
 
-
+  /*this method will determine if the image is horizontal or vertical*/
+  setOrientation(path:any): any{
+    let image = new Image();
+    image.src = path
+    if (image.width > image.height) {
+      return "horizontal";
+    } else {
+      return "vertical";
+    }
+  }
 
   /*This method gets the original size of the image*/
   getDims(): any {
@@ -98,8 +107,19 @@ export class ImagesComponent implements OnInit {
 
   /*this method will call the others and paste the image*/
   resizeImage(): void {
-    let newSize = this.cropImage();
-    this.imageWidth = newSize[0];
-    this.imageHeight = newSize[1];
+    for (let path of this.imagePaths){
+      console.log(path);
+      this.img.src = path;
+      let newSize = this.cropImage();
+      this.imageWidth = newSize[0];
+      this.imageHeight = newSize[1];
+      /*console.log(this.imageWidth, this.imageHeight);*/
+      this.imageWidths = this.imageWidths.concat(newSize[0]);
+      this.imageHeights = this.imageHeights.concat(newSize[1]);
+      this.imageOrientation = this.imageOrientation.concat(this.setOrientation(path));
+    }
+    console.log(this.imageWidths)
+    console.log(this.imageHeights)
+
   }
 }
